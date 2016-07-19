@@ -2,13 +2,62 @@
 
 import * as React from "react";
 import * as ReactDOM from "react-dom";
-
+import {bindActionCreators} from 'redux';
 import { Shape } from "./Shape";
 
 export interface PaletteProps {
 
 }
 
+export class Palette extends React.Component<PaletteProps, {}> {
+    renderShapes() {
+        return this.props.shapes.map((shape) =>{
+            return(
+                <Shape key={shape.kind}>{shape.content}</Shape>
+            );
+        });
+    }
+    
+    render() {
+        return <div className = "palette">
+                <div className = "shape-wrapper">
+                    {this.renderShapes()}
+                </div>
+        </div>;
+    }
+}
+
+function mapStateToProps(state){
+//whatever is returned will show up as props inside
+//of Palette
+    return {
+        shapes: state.shapes
+    };
+
+}
+
+//Anything returned on this function will end up as props on the Palette container. Might need this for passing state from shape component > action > reducer > store
+//function mapDispatchToProps(dispatch) {
+//    return bindActionCreators({ selectShape: selectShape }, dispatch);
+//}
+
+//Promote Palette from a component to a container. If it needs to know about this new 
+//dispatch method, selectBook. Make it available as a prop.
+export default connect(mapStateToProps)(Palette);
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
 export class Palette extends React.Component<PaletteProps, {}> {
     render() {
         return <div className = "palette">
@@ -42,3 +91,4 @@ export class Palette extends React.Component<PaletteProps, {}> {
         </div>;
     }
 }
+*/

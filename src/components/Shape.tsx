@@ -4,7 +4,7 @@ import * as React from "react";
 import * as ReactDOM from "react-dom";
 
 export interface ShapeProps {
- kind: string;
+ kind?: string;
 }
 
 export class Shape extends React.Component<ShapeProps, {}> {

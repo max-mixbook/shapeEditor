@@ -44,30 +44,11 @@
 /* 0 */
 /***/ function(module, exports, __webpack_require__) {
 
-	// This is the entry point for React to update the DOM
 	"use strict";
-	// Non redux render. This works.
 	var React = __webpack_require__(1);
 	var ReactDOM = __webpack_require__(2);
 	var App_1 = __webpack_require__(3);
-	ReactDOM.render(React.createElement(App_1.App, {author: "Max"}), document.getElementById("react"));
-	/* Redux render. Not working yet.
-	import * as React from "react";
-	import * as ReactDOM from "react-dom";
-	import { Provider } from 'react-redux';
-	import { createStore } from 'redux';
-	import todoApp from './reducers';
-	import { Canvas } from "./components/canvas";
-	
-	let store = createStore(todoApp)
-	
-	ReactDOM.render (
-	    <Provider store={store}>
-	        <App author="Max" />
-	    </Provider>,
-	    document.getElementById("react")
-	);
-	*/
+	ReactDOM.render(React.createElement(App_1.App, {author: "Me"}), document.getElementById("react"));
 
 
 /***/ },
@@ -86,7 +67,8 @@
 /* 3 */
 /***/ function(module, exports, __webpack_require__) {
 
-	// This is the actual app. It hold the palette and canvas
+	// This is the actual app.
+	// Renders Canvas and Palette components
 	"use strict";
 	var __extends = (this && this.__extends) || function (d, b) {
 	    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
