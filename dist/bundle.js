@@ -1869,6 +1869,7 @@
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
 	var React = __webpack_require__(1);
+	var react_redux_1 = __webpack_require__(3);
 	var Shape_1 = __webpack_require__(30);
 	var ShapeWrapper = (function (_super) {
 	    __extends(ShapeWrapper, _super);
@@ -1876,21 +1877,21 @@
 	        _super.apply(this, arguments);
 	    }
 	    ShapeWrapper.prototype.renderShapes = function () {
-	        return (React.createElement(Shape_1.default, {title: "Starter"}));
+	        return this.props.shapes.map(function (shape) {
+	            console.log(shape);
+	            return (React.createElement(Shape_1.default, {key: shape.title}));
+	        });
 	    };
 	    ShapeWrapper.prototype.render = function () {
 	        return (React.createElement("div", {className: "shape-wrapper"}, this.renderShapes()));
 	    };
 	    return ShapeWrapper;
 	}(React.Component));
-	Object.defineProperty(exports, "__esModule", { value: true });
-	exports.default = ShapeWrapper;
 	function mapStateToProps(state) {
-	    console.log(state);
-	    return {
-	        shapes: state.shapes
-	    };
+	    return { shapes: state.shapes };
 	}
+	Object.defineProperty(exports, "__esModule", { value: true });
+	exports.default = react_redux_1.connect(mapStateToProps)(ShapeWrapper);
 
 
 /***/ },
@@ -1911,7 +1912,13 @@
 	        _super.apply(this, arguments);
 	    }
 	    Shape.prototype.render = function () {
-	        return (React.createElement("div", {className: "shape"}, "Something elese + ", this.props.title));
+	        /*  var url = "../svg/" + {this.props.key} + ".svg";
+	          var svgStyle = {
+	              backgroundImage: "url(" + {url}+ ")",
+	              width: "100",
+	              height: "80"
+	          };*/
+	        return (React.createElement("div", {className: "shape"}, "Back to static"));
 	    };
 	    return Shape;
 	}(React.Component));

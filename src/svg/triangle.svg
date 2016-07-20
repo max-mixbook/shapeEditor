@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="100px" height="80px" viewBox="0 0 100 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch Beta 39 (31504) - http://www.bohemiancoding.com/sketch -->
+    <title>triangle</title>
+    <desc>Created with Sketch Beta.</desc>
+    <defs></defs>
+    <g id="R8" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="triangle" transform="translate(0.000000, -222.000000)" fill="#465659">
+            <polygon id="triangle" points="50 222 100 302 0 302"></polygon>
+        </g>
+    </g>
+</svg>

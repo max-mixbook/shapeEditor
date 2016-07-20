@@ -1,18 +1,21 @@
 import * as React from "react";
 import * as ReactDOM from "react-dom";
-import {bindActionCreators} from 'redux';
 import { connect } from 'react-redux';
 import Shape from '../components/Shape';
 
 export interface ShapeWrapperProps {
-    shapes?: string;
+    shapes: Array<Object>;
 }
 
-class ShapeWrapper extends React.Component <ShapeWrapperProps, {}> {
+class ShapeWrapper extends React.Component <ShapeWrapperProps, any> {
     renderShapes() {
-        return (
-            <Shape title="Starter" />
-        );
+       
+        return this.props.shapes.map((shape:Object) => {
+            console.log(shape);
+           return (
+               <Shape key={shape.title}/>
+            ); 
+        });
     }
 
     render() {
@@ -28,4 +31,5 @@ function mapStateToProps(state:any){
     return { shapes: state.shapes }
 }
 
-export default connect(mapStateToProps)(ShapeWrapper);
+export default connect<ShapeWrapperProps, {}, {}>(mapStateToProps)(ShapeWrapper);
+
