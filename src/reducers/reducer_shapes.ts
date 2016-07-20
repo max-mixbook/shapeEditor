@@ -1,23 +1,11 @@
 export default function() {
     return  [
-        {
-        kind: "square", 
-        content: "im a square"
-        },
+        { title: "square" },
         
-        {
-        kind: "triangle",
-        content: "im a triangle"
-        },
+        { title: "triangle" },
         
-        {
-        kind: "square", 
-        content: "im a square"
-        },
+        { title: "circle"},
         
-        {
-        kind: "star",
-        content: "im a star"
-        }
+        { title: "star"}
     ]
 }

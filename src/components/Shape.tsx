@@ -8,9 +8,9 @@ export interface ShapeProps {
 }
 
 export class Shape extends React.Component<ShapeProps, {}> {
-    render(shape) {
-        return <div className = "shape" key={shape.kind}>
-                    {shape.content}
+    render() {
+        return <div className = "shape">
+                  
             </div>;
     }
 }
