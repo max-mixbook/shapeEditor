@@ -13,13 +13,11 @@ export interface PaletteProps {
 export default class Palette extends React.Component<PaletteProps, {}> {
     
     render() {
-   
-
         return (
-                <div className = "palette">
-                    <ShapeWrapper />
-                </div>
-                );
+            <div className = "palette">
+               <ShapeWrapper />
+            </div>
+            );
     }
 }
 

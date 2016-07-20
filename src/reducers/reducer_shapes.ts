@@ -7,5 +7,5 @@ export default function() {
         { title: "circle"},
         
         { title: "star"}
-    ]
+    ];
 }

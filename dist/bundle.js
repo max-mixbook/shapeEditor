@@ -1875,13 +1875,22 @@
 	    function ShapeWrapper() {
 	        _super.apply(this, arguments);
 	    }
+	    ShapeWrapper.prototype.renderShapes = function () {
+	        return (React.createElement(Shape_1.default, {title: "Starter"}));
+	    };
 	    ShapeWrapper.prototype.render = function () {
-	        return (React.createElement(Shape_1.default, {title: "Buddy"}));
+	        return (React.createElement("div", {className: "shape-wrapper"}, this.renderShapes()));
 	    };
 	    return ShapeWrapper;
 	}(React.Component));
 	Object.defineProperty(exports, "__esModule", { value: true });
 	exports.default = ShapeWrapper;
+	function mapStateToProps(state) {
+	    console.log(state);
+	    return {
+	        shapes: state.shapes
+	    };
+	}
 
 
 /***/ },
@@ -1902,7 +1911,7 @@
 	        _super.apply(this, arguments);
 	    }
 	    Shape.prototype.render = function () {
-	        return (React.createElement("div", {className: "shape"}, "Blah blah blah + ", this.props.title));
+	        return (React.createElement("div", {className: "shape"}, "Something elese + ", this.props.title));
 	    };
 	    return Shape;
 	}(React.Component));

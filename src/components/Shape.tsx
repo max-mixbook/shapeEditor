@@ -11,6 +11,6 @@ title?:string;
 
 export default class Shape extends React.Component<ShapeProps, {}> {
     render() {
-        return (<div className = "shape">Blah blah blah + {this.props.title}</div>);
+        return (<div className = "shape">Something elese + {this.props.title}</div>);
     }
 }
