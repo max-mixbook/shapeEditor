@@ -10,7 +10,7 @@ import reducers from "./reducers";
 
 ReactDOM.render (
     <Provider store={createStoreWithMiddleware(reducers)}>
-        <App author="Me"/>
+        <App />
     </Provider>,
     document.getElementById("react")
 );

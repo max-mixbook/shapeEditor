@@ -1,49 +1,27 @@
-// This component holds the shapes
-
 import * as React from "react";
 import * as ReactDOM from "react-dom";
+
 import {bindActionCreators} from 'redux';
 import { connect } from 'react-redux';
+import ShapeWrapper from './ShapeWrapper';
+
 
 export interface PaletteProps {
 
 }
 
-class Palette extends React.Component<PaletteProps, {}> {
-    renderShapes() {
-        return this.props.shapes.map(
-            (shape) => { return (<div key={shape.kind}>{shape.content}</div>);
-            }
-        );
-    }
+export default class Palette extends React.Component<PaletteProps, {}> {
     
     render() {
+   
+
         return (
                 <div className = "palette">
-                    <div className = "shape-wrapper">
-                        {this.renderShapes()}
-                    </div>
+                    <ShapeWrapper />
                 </div>
                 );
     }
 }
-
-function mapStateToProps(state){
-//whatever is returned will show up as props inside
-//of Palette
-    return {
-        shapes: state.shapes
-    };
-}
-
-//Promote Palette from a component to a container. If it needs to know about this new 
-//dispatch method, selectBook. Make it available as a prop.
-export default connect(mapStateToProps)(Palette);
-
-
-
-
-
 
 
 

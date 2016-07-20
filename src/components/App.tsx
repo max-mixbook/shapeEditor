@@ -6,10 +6,10 @@ import * as React from "react";
 import * as ReactDOM from "react-dom";
 
 import { Canvas } from "./Canvas";
-import { Palette } from "./Palette";
+import  Palette from "../containers/Palette";
 
 
-export interface AppProps { author: string; }
+export interface AppProps {}
 
 export class App extends React.Component<AppProps, {}> {
     render() {

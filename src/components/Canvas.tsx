@@ -1,7 +1,7 @@
 // This component is the the canvas drop target for the shapes
 
 import * as React from "react";
-import * as ReactDOM from "react-dom";
+
 
 export interface CanvasProps {
 

@@ -51,8 +51,8 @@
 	var redux_1 = __webpack_require__(11);
 	var createStoreWithMiddleware = redux_1.applyMiddleware()(redux_1.createStore);
 	var App_1 = __webpack_require__(26);
-	var reducers_1 = __webpack_require__(29);
-	ReactDOM.render(React.createElement(react_redux_1.Provider, {store: createStoreWithMiddleware(reducers_1.default)}, React.createElement(App_1.App, {author: "Me"})), document.getElementById("react"));
+	var reducers_1 = __webpack_require__(31);
+	ReactDOM.render(React.createElement(react_redux_1.Provider, {store: createStoreWithMiddleware(reducers_1.default)}, React.createElement(App_1.App, null)), document.getElementById("react"));
 
 
 /***/ },
@@ -1765,7 +1765,7 @@
 	        _super.apply(this, arguments);
 	    }
 	    App.prototype.render = function () {
-	        return React.createElement("div", null, React.createElement(Canvas_1.Canvas, null), React.createElement(Palette_1.Palette, null));
+	        return React.createElement("div", null, React.createElement(Canvas_1.Canvas, null), React.createElement(Palette_1.default, null));
 	    };
 	    return App;
 	}(React.Component));
@@ -1801,7 +1801,6 @@
 /* 28 */
 /***/ function(module, exports, __webpack_require__) {
 
-	// This component holds the shapes
 	"use strict";
 	var __extends = (this && this.__extends) || function (d, b) {
 	    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
@@ -1809,29 +1808,19 @@
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
 	var React = __webpack_require__(1);
-	var react_redux_1 = __webpack_require__(3);
+	var ShapeWrapper_1 = __webpack_require__(29);
 	var Palette = (function (_super) {
 	    __extends(Palette, _super);
 	    function Palette() {
 	        _super.apply(this, arguments);
 	    }
-	    Palette.prototype.renderShapes = function () {
-	        return this.props.shapes.map(function (shape) { return (React.createElement("div", {key: shape.kind}, shape.content)); });
-	    };
 	    Palette.prototype.render = function () {
-	        return (React.createElement("div", {className: "palette"}, React.createElement("div", {className: "shape-wrapper"}, this.renderShapes())));
+	        return (React.createElement("div", {className: "palette"}, React.createElement(ShapeWrapper_1.default, null)));
 	    };
 	    return Palette;
 	}(React.Component));
-	function mapStateToProps(state) {
-	    //whatever is returned will show up as props inside
-	    //of Palette
-	    return {
-	        shapes: state.shapes
-	    };
-	}
 	Object.defineProperty(exports, "__esModule", { value: true });
-	exports.default = react_redux_1.connect(mapStateToProps)(Palette);
+	exports.default = Palette;
 	/*
 	export class Palette extends React.Component<PaletteProps, {}> {
 	    render() {
@@ -1874,8 +1863,60 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
+	var __extends = (this && this.__extends) || function (d, b) {
+	    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+	    function __() { this.constructor = d; }
+	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+	};
+	var React = __webpack_require__(1);
+	var Shape_1 = __webpack_require__(30);
+	var ShapeWrapper = (function (_super) {
+	    __extends(ShapeWrapper, _super);
+	    function ShapeWrapper() {
+	        _super.apply(this, arguments);
+	    }
+	    ShapeWrapper.prototype.render = function () {
+	        return (React.createElement(Shape_1.default, {title: "Buddy"}));
+	    };
+	    return ShapeWrapper;
+	}(React.Component));
+	Object.defineProperty(exports, "__esModule", { value: true });
+	exports.default = ShapeWrapper;
+
+
+/***/ },
+/* 30 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// This component is the draggable shape
+	"use strict";
+	var __extends = (this && this.__extends) || function (d, b) {
+	    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+	    function __() { this.constructor = d; }
+	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+	};
+	var React = __webpack_require__(1);
+	var Shape = (function (_super) {
+	    __extends(Shape, _super);
+	    function Shape() {
+	        _super.apply(this, arguments);
+	    }
+	    Shape.prototype.render = function () {
+	        return (React.createElement("div", {className: "shape"}, "Blah blah blah + ", this.props.title));
+	    };
+	    return Shape;
+	}(React.Component));
+	Object.defineProperty(exports, "__esModule", { value: true });
+	exports.default = Shape;
+
+
+/***/ },
+/* 31 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
 	var redux_1 = __webpack_require__(11);
-	var reducer_shapes_1 = __webpack_require__(30);
+	var reducer_shapes_1 = __webpack_require__(32);
 	var rootReducer = redux_1.combineReducers({
 	    shapes: reducer_shapes_1.default
 	});
@@ -1884,7 +1925,7 @@
 
 
 /***/ },
-/* 30 */
+/* 32 */
 /***/ function(module, exports) {
 
 	"use strict";
