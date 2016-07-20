@@ -6,14 +6,14 @@ import {bindActionCreators} from 'redux';
 import { Shape } from "./Shape";
 
 export interface PaletteProps {
-
+    shapes?: any
 }
 
-export class Palette extends React.Component<PaletteProps, {}> {
+class Palette extends React.Component<PaletteProps, {}> {
     renderShapes() {
         return this.props.shapes.map((shape) =>{
             return(
-                <Shape key={shape.kind}>{shape.content}</Shape>
+                <Shape shape={shape}/>;
             );
         });
     }

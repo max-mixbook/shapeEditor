@@ -4,13 +4,13 @@ import * as React from "react";
 import * as ReactDOM from "react-dom";
 
 export interface ShapeProps {
- kind?: string;
+
 }
 
 export class Shape extends React.Component<ShapeProps, {}> {
-    render() {
-        return <div className = "shape" kind = {this.props.kind}>
-            {this.props.children}
-        </div>;
+    render(shape) {
+        return <div className = "shape" key={shape.kind}>
+                    {shape.content}
+            </div>;
     }
 }
